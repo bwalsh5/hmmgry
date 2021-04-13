@@ -22,13 +22,14 @@ $.ajax({
 url:"https://api.spoonacular.com/recipes/search?apiKey=06969a0e3827430d85de4a1df60c9b5d&number=1&query="+q,
 success: function(res) {
 
-document.getElementById("output").innerHTML="<h1>"+res.results[0].title+"</h1><br><img src='"+res.baseUri+res.results[0].image+"' width='400' /><br>Ready in "+res.results[0].readyInMinutes+" minutes"
-getsource(res.results[0].id)
+// document.getElementById("output").innerHTML="<h1>"+res.results[0].title+"</h1><br><img src='"+res.baseUri+res.results[0].image+"' width='400' /><br>Ready in "+res.results[0].readyInMinutes+" minutes"
+// getsource(res.results[0].id)
 
 
 localStorage.setItem("title", res.results[0].title)
 localStorage.setItem("picSrc", res.baseUri+res.results[0].image)
 localStorage.setItem("time", res.results[0].readyInMinutes)
+window.open('results.html', '_self')
 }
 });
 }
@@ -155,7 +156,7 @@ function getrecepe(q){
 
 
         <button id="btn" onclick="getrecepe(document.getElementById('search').value)" class="randomizer" >
-  <a href="results.html" target="_self"> </a>
+  <!-- <a href="results.html" target="_self"> </a> -->
   </button>
 
 
